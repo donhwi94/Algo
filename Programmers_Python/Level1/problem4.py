@@ -49,7 +49,7 @@ def solution(new_id):
 
   return answer
 
-# new_id = "=.="
-new_id = "[][][][][][][][][][]."
+new_id = "=.="
+# new_id = "[][][][][][][][][][]."
 answer = solution(new_id)
 print(answer)
