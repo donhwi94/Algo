@@ -33,7 +33,11 @@ def solution(new_id):
     #   point = False
 
     #3단계 정규식 사용
-    answer = re.sub("[\.]+",".",answer)
+    # answer = re.sub("[\.]+",".",answer)
+
+    #3단계 while문 사용 
+    while ".." in answer:
+      answer = answer.replace("..", ".")
 
   #4단계
   answer = answer.lstrip(".")
