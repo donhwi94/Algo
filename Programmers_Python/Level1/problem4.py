@@ -1,3 +1,7 @@
+# 프로그래머스 Level1 <신규 아이디 추천>
+# 기존 코드에서 테스트 케이스 26건 중에 1건이 계속 실패함 ㅠㅠ 
+# 3단계를 정규식으로 바꿈 
+
 def solution(new_id):
   answer = ''
   valid = ["-", "_", "."]
@@ -13,22 +17,25 @@ def solution(new_id):
     if not (a >= 'a' and a<= 'z') and a not in valid and not (a >= '0' and a<= '9'):
       answer = answer.replace(a, "")
 
-    # 3단계
-    if a == '.': 
-      if index == len(answer):
-        point_num = point_num + 1
-        answer = answer.replace("."*point_num, ".")
-      else:
-        if point:
-          point_num = point_num + 1
-        else:
-          point = True
-    else: 
-      answer = answer.replace("."*point_num, ".")
-      point_num = 1  
-      point = False
+    # 3단계 오류남
+    # if a == '.': 
+    #   if index == len(answer):
+    #     point_num = point_num + 1
+    #     answer = answer.replace("."*point_num, ".")
+    #   else:
+    #     if point:
+    #       point_num = point_num + 1
+    #     else:
+    #       point = True
+    # else: 
+    #   answer = answer.replace("."*point_num, ".")
+    #   point_num = 1  
+    #   point = False
 
-  # 4단계
+    #3단계 정규식 사용
+    answer = re.sub("[\.]+",".",answer)
+
+  #4단계
   answer = answer.lstrip(".")
   answer = answer.rstrip(".")
   
