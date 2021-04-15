@@ -14,8 +14,11 @@ def solution(new_id):
     index = index + 1
 
     #2단계
-    if not (a >= 'a' and a<= 'z') and a not in valid and not (a >= '0' and a<= '9'):
-      answer = answer.replace(a, "")
+    # if not (a >= 'a' and a<= 'z') and a not in valid and not (a >= '0' and a<= '9'):
+    #   answer = answer.replace(a, "")
+
+    #2단계 정규식 사용 
+    answer = re.sub('[^a-z0-9\-\_\.]',"",answer)
 
     # 3단계 오류남
     # if a == '.': 
